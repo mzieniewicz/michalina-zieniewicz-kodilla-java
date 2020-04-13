@@ -39,6 +39,26 @@ public class ShapeCollectorTestSuite {
         Assert.assertEquals(testCircle,retrivedFigure);
         }
     @Test
+    public void testGetFigureIndexIsLessThan0(){
+        Circle testCircle = new Circle(3.0);
+        ShapeCollector testShape = new  ShapeCollector(testCircle);
+        testShape.addFigure(testCircle);
+        //When
+        Shape retrivedFigure = testShape.getFigure(-1);
+        //Then
+        Assert.assertEquals(null,retrivedFigure);
+    }
+    @Test
+    public void testGetFigureIfIndexIsMoreThanNumberOfFigures(){
+        Circle testCircle = new Circle(3.0);
+        ShapeCollector testShape = new  ShapeCollector(testCircle);
+        testShape.addFigure(testCircle);
+        //When
+        Shape retrivedFigure = testShape.getFigure(100);
+        //Then
+        Assert.assertEquals(null,retrivedFigure);
+    }
+    @Test
     public void testRemoveFigureNotExisting(){
         Circle testCircle = new Circle(3.0);
         ShapeCollector testShape = new  ShapeCollector(testCircle);
