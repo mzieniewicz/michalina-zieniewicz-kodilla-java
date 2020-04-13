@@ -46,7 +46,7 @@ public class ShapeCollectorTestSuite {
         //When
         Shape retrivedFigure = testShape.getFigure(-1);
         //Then
-        Assert.assertEquals(null,retrivedFigure);
+        Assert.assertNull(retrivedFigure);
     }
     @Test
     public void testGetFigureIfIndexIsMoreThanNumberOfFigures(){
@@ -56,7 +56,7 @@ public class ShapeCollectorTestSuite {
         //When
         Shape retrivedFigure = testShape.getFigure(100);
         //Then
-        Assert.assertEquals(null,retrivedFigure);
+        Assert.assertNull(retrivedFigure);
     }
     @Test
     public void testRemoveFigureNotExisting(){

@@ -7,9 +7,9 @@ import com.kodilla.testing.forum.ForumUser;
 public class ForumStatistic {
 
 
-    private int forumUsers;
-    private int forumPosts;
-    private int forumComments;
+    private double forumUsers;
+    //private double forumPosts;
+   // private double forumComments;
     private double averageNumberOfPosts;
     private double averageNumberOfComments;
     private double averageNumberOfCommentsPerPost;
@@ -18,21 +18,20 @@ public class ForumStatistic {
     }
 
     public void calculateAdvStatistics(Statistics statistics) {
-        int forumUsers = statistics.usersNames().size();
-        int forumPosts = statistics.postsCount();
-        int forumComments = statistics.commentsCount();
+        forumUsers = statistics.usersNames().size();
+       double forumPosts = statistics.postsCount();
+        double forumComments = statistics.commentsCount();
 
-        if (statistics.postsCount() == 0 || statistics.usersNames().size() == 0) {
+        if (forumUsers == 0) {
             averageNumberOfPosts = 0;
             averageNumberOfComments = 0;
+        } else if (forumPosts == 0) {
             averageNumberOfCommentsPerPost = 0;
         } else {
-
-           averageNumberOfPosts = forumPosts / forumUsers;
-           averageNumberOfComments = forumComments / forumUsers;
-           averageNumberOfCommentsPerPost = forumComments / forumPosts;
+            averageNumberOfPosts = forumPosts / forumUsers;
+            averageNumberOfComments = forumComments / forumUsers;
+            averageNumberOfCommentsPerPost = forumComments / forumPosts;
         }
-
     }
 
     public double getAverageNumberOfPosts() {
