@@ -22,7 +22,7 @@ public class ShapeCollectorTestSuite {
     public void testAddFigure(){
         //Given
         Circle testCircle = new Circle(3.0);
-        ShapeCollector testShape = new  ShapeCollector(testCircle);
+        ShapeCollector testShape = new  ShapeCollector();
         //When
         testShape.addFigure(testCircle);
         //Then
@@ -31,7 +31,7 @@ public class ShapeCollectorTestSuite {
     @Test
     public void testGetFigure(){
         Circle testCircle = new Circle(3.0);
-        ShapeCollector testShape = new  ShapeCollector(testCircle);
+        ShapeCollector testShape = new  ShapeCollector();
         testShape.addFigure(testCircle);
         //When
         Shape retrivedFigure = testShape.getFigure(0);
@@ -41,7 +41,7 @@ public class ShapeCollectorTestSuite {
     @Test
     public void testGetFigureIndexIsLessThan0(){
         Circle testCircle = new Circle(3.0);
-        ShapeCollector testShape = new  ShapeCollector(testCircle);
+        ShapeCollector testShape = new  ShapeCollector();
         testShape.addFigure(testCircle);
         //When
         Shape retrivedFigure = testShape.getFigure(-1);
@@ -51,7 +51,7 @@ public class ShapeCollectorTestSuite {
     @Test
     public void testGetFigureIfIndexIsMoreThanNumberOfFigures(){
         Circle testCircle = new Circle(3.0);
-        ShapeCollector testShape = new  ShapeCollector(testCircle);
+        ShapeCollector testShape = new  ShapeCollector();
         testShape.addFigure(testCircle);
         //When
         Shape retrivedFigure = testShape.getFigure(100);
@@ -61,7 +61,7 @@ public class ShapeCollectorTestSuite {
     @Test
     public void testRemoveFigureNotExisting(){
         Circle testCircle = new Circle(3.0);
-        ShapeCollector testShape = new  ShapeCollector(testCircle);
+        ShapeCollector testShape = new  ShapeCollector();
         //When
         boolean result = testShape.removeFigure(testCircle);
         //Then
@@ -70,7 +70,7 @@ public class ShapeCollectorTestSuite {
     @Test
     public void testRemoveFigure(){
         Circle testCircle = new Circle(3.0);
-        ShapeCollector testShape = new  ShapeCollector(testCircle);
+        ShapeCollector testShape = new  ShapeCollector();
         testShape.addFigure(testCircle);
         //When
         boolean result = testShape.removeFigure(testCircle);
