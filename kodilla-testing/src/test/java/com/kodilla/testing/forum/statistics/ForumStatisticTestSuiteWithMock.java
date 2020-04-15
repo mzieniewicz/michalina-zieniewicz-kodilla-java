@@ -168,6 +168,7 @@ public class ForumStatisticTestSuiteWithMock {
         Assert.assertEquals(0, forumStatistic.getAverageNumberOfPosts(), 0.001);
         Assert.assertEquals(1, forumStatistic.getAverageNumberOfCommentsPerPost(), 0.001);
     }
+
     @Test
     public void testCalculateAdvStatisticsWhenListIs100CommentCountIs100PostCountIs100() {
         //Given
@@ -188,6 +189,7 @@ public class ForumStatisticTestSuiteWithMock {
         Assert.assertEquals(1, forumStatistic.getAverageNumberOfPosts(), 0.001);
         Assert.assertEquals(1, forumStatistic.getAverageNumberOfCommentsPerPost(), 0.001);
     }
+
     @Test
     public void testCalculateAdvStatisticsWhenListIs100CommentCountIs50PostCountIs100() {
         //Given
@@ -208,6 +210,7 @@ public class ForumStatisticTestSuiteWithMock {
         Assert.assertEquals(1, forumStatistic.getAverageNumberOfPosts(), 0.001);
         Assert.assertEquals(0.5, forumStatistic.getAverageNumberOfCommentsPerPost(), 0.001);
     }
+
     @Test
     public void testCalculateAdvStatisticsWhenListIs100CommentCountIs100PostCountIs50() {
         //Given
@@ -228,7 +231,6 @@ public class ForumStatisticTestSuiteWithMock {
         Assert.assertEquals(0.5, forumStatistic.getAverageNumberOfPosts(), 0.001);
         Assert.assertEquals(2, forumStatistic.getAverageNumberOfCommentsPerPost(), 0.001);
     }
-
 
 
 }
