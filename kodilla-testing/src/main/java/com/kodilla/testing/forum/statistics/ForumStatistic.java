@@ -8,8 +8,8 @@ public class ForumStatistic {
 
 
     private double forumUsers;
-    //private double forumPosts;
-   // private double forumComments;
+    private double forumPosts;
+    private double forumComments;
     private double averageNumberOfPosts;
     private double averageNumberOfComments;
     private double averageNumberOfCommentsPerPost;
@@ -19,19 +19,32 @@ public class ForumStatistic {
 
     public void calculateAdvStatistics(Statistics statistics) {
         forumUsers = statistics.usersNames().size();
-       double forumPosts = statistics.postsCount();
-        double forumComments = statistics.commentsCount();
+        forumPosts = statistics.postsCount();
+        forumComments = statistics.commentsCount();
 
-        if (forumUsers == 0) {
-            averageNumberOfPosts = 0;
-            averageNumberOfComments = 0;
-        } else if (forumPosts == 0) {
-            averageNumberOfCommentsPerPost = 0;
-        } else {
-            averageNumberOfPosts = forumPosts / forumUsers;
-            averageNumberOfComments = forumComments / forumUsers;
-            averageNumberOfCommentsPerPost = forumComments / forumPosts;
-        }
+         if(forumUsers == 0) {
+             averageNumberOfPosts = 0;
+             averageNumberOfComments = 0;
+             if (forumPosts == 0 ||forumComments == 0) {
+                 averageNumberOfCommentsPerPost = 0;
+             }else{
+                 averageNumberOfCommentsPerPost = forumComments / forumPosts;
+             }
+
+         }else{
+
+             if (forumPosts == 0 ||forumComments == 0) {
+                 averageNumberOfCommentsPerPost = 0;
+             }
+             else{
+                 averageNumberOfCommentsPerPost = forumComments / forumPosts;
+
+             }
+             averageNumberOfPosts = forumPosts / forumUsers;
+             averageNumberOfComments = forumComments / forumUsers;
+
+         }
+
     }
 
     public double getAverageNumberOfPosts() {
