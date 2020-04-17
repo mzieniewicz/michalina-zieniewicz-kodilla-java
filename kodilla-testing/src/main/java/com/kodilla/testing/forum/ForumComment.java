@@ -7,9 +7,9 @@ public class ForumComment {
     String commentBody;
     String author;
 
-    public ForumComment(ForumPost thePost, String mrsmith, String commentBody) {
-        this.commentBody = commentBody;
+    public ForumComment(ForumPost forumPost, String commentBody, String author) {
         this.forumPost = forumPost;
+        this.commentBody = commentBody;
         this.author = author;
     }
 
@@ -28,8 +28,10 @@ public class ForumComment {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof ForumComment)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
+
         ForumComment that = (ForumComment) o;
+
         if (!forumPost.equals(that.forumPost)) return false;
         if (!commentBody.equals(that.commentBody)) return false;
         return author.equals(that.author);

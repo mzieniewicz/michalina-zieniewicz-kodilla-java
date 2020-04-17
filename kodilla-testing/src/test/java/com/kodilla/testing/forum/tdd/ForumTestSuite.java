@@ -96,6 +96,7 @@ public class ForumTestSuite {
         ForumUser forumUser = new ForumUser("mrsmith","John Smith");
         ForumPost thePost = new ForumPost("Hello everyone, " +
                 "this is my first contribution here!", "mrsmith");
+        forumUser.addPost(thePost.getAuthor(), thePost.getPostBody());
         //When
         boolean result = forumUser.removePost(thePost);
         //Then
@@ -109,6 +110,8 @@ public class ForumTestSuite {
         ForumPost thePost = new ForumPost("Hello everyone, " +
                 "this is my first contribution here!", "mrsmith");
         ForumComment theComment = new ForumComment(thePost, "mrsmith", "Thank you for all good words!");
+        forumUser.addComment(thePost, theComment.getAuthor(),
+                theComment.getCommentBody());
         //When
         boolean result = forumUser.removeComment(theComment);
         //Then
