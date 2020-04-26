@@ -2,21 +2,13 @@ package com.kodilla.exception.test;
 
 public class FirstChallenge {
 
-    public void divide(double a, double b) {
-        try {
-            double result = a / b;
-            System.out.println(result);
-
-        } catch (ArithmeticException e) {
-
-            System.out.println( "Error: " + e);
-
-        } finally {
-
-            System.out.println("Remember! Cannot divide by zero!");
+    public double divide(double a, double b) throws ArithmeticException {
+        if (b == 0) {
+            throw new ArithmeticException();
         }
-
+        return a / b;
     }
+
     /**
      * This main can throw an ArithmeticException!!!
      *
@@ -26,7 +18,18 @@ public class FirstChallenge {
 
         FirstChallenge firstChallenge = new FirstChallenge();
 
-        firstChallenge.divide(5,0);
+        try {
+            double result = firstChallenge.divide(3, 0);
+            System.out.println(result);
+
+        } catch (ArithmeticException e) {
+
+            System.out.println("Oh no! Something went wrong! Error: " + e);
+
+        } finally {
+
+            System.out.println("Remember! Cannot divide by zero!");
+        }
 
     }
 }
