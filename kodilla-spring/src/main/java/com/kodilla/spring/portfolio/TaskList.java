@@ -4,9 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TaskList {
-    List<String> tasks;
 
-    public TaskList(List<String> tasks) {
-        this.tasks = new ArrayList<>();
+    private List<String> tasks;
+
+    public TaskList() {
+         tasks = new ArrayList<>();
+    }
+
+    public List<String> getTasks() {
+        return tasks;
     }
 }
