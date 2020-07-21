@@ -10,7 +10,7 @@ public class Item {
     private int id;
     private BigDecimal price;
     private int quantity;
-    private BigDecimal value = price.multiply(new BigDecimal(quantity));
+    private BigDecimal value;
     private Product product;
     private Invoice invoice;
 
@@ -43,7 +43,7 @@ public class Item {
 
     @Column(name = "VALUE")
     public BigDecimal getValue() {
-        return value;
+        return value = price.multiply(new BigDecimal(quantity));
     }
 
     @ManyToOne(cascade = CascadeType.ALL)
