@@ -11,9 +11,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.persistence.Table;
+import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
