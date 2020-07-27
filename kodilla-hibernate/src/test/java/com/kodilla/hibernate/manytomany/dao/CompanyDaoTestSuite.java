@@ -66,8 +66,9 @@ public class CompanyDaoTestSuite {
         }
 
     }
+
     @Test
-    public void testEmployeeNamedQuery(){
+    public void testEmployeeNamedQuery() {
         //Given
         Employee johnSmith = new Employee("John", "Smith");
         Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
@@ -103,17 +104,20 @@ public class CompanyDaoTestSuite {
         List<Employee> employeeThisLastname = employeeDao.retrieveEmployeeThisLastname("Smith");
 
         //Then
-        try{
-            Assert.assertEquals(2,employeeThisLastname.size());
 
-        }finally {
+        Assert.assertEquals(2, employeeThisLastname.size());
+        //CleanUp
+        try {
             companyDao.deleteById(softwareMachineId);
             companyDao.deleteById(dataMaestersId);
             companyDao.deleteById(greyMatterId);
+        } catch (Exception e) {
+            //do nothing
         }
     }
+
     @Test
-    public void testCompanyNamedNativeQuery(){
+    public void testCompanyNamedNativeQuery() {
         //Given
         Employee johnSmith = new Employee("John", "Smith");
         Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
@@ -147,14 +151,16 @@ public class CompanyDaoTestSuite {
         List<Company> companyStartsWithTheLetters = companyDao.retrieveCompanyWithFirstThreeLetters("Dat");
 
         //Then
-        try{
-            Assert.assertEquals(1,companyStartsWithTheLetters.size());
-        }finally {
+
+        Assert.assertEquals(1, companyStartsWithTheLetters.size());
+        //CleanUp
+        try {
             companyDao.deleteById(softwareMachineId);
             companyDao.deleteById(dataMaestersId);
             companyDao.deleteById(greyMatterId);
+        } catch (Exception e) {
+            //do nothing
         }
-
 
     }
 
