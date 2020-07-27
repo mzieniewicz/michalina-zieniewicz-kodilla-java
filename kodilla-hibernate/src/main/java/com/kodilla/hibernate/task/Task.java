@@ -113,8 +113,11 @@ public final class Task {
         if (o == null || getClass() != o.getClass()) return false;
 
         Task task = (Task) o;
-
-        return getCreated().equals(task.getCreated());
+        System.out.println(task);
+        if (getDuration() != task.getDuration()) return false;
+        if (getDescription() != null ? !getDescription().equals(task.getDescription()) : task.getDescription() != null)
+            return false;
+        return getCreated() != null ? getCreated().equals(task.getCreated()) : task.getCreated() == null;
     }
 
     @Override
