@@ -106,4 +106,23 @@ public final class Task {
     public void setTaskFinancialDetails(TaskFinancialDetails taskFinancialDetails) {
         this.taskFinancialDetails = taskFinancialDetails;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Task task = (Task) o;
+
+        return getCreated().equals(task.getCreated());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + created.hashCode();
+        result = 31 * result + duration;
+        return result;
+    }
 }
