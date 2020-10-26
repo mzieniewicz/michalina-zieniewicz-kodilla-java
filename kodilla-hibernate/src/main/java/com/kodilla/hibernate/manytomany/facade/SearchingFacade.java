@@ -22,7 +22,7 @@ public class SearchingFacade {
 
     public List<Company> searchCompaniesName(String fragment) throws SearchException {
         LOGGER.info("The search for the company name with the letters: " + fragment + "has started");
-        List<Company> resultCompanies = companyDao.retrieveCompanyWithFirstThreeLetters(fragment);
+        List<Company> resultCompanies = companyDao.retrieveCompanyWithTheLetters(fragment);
         if (resultCompanies.isEmpty()) {
             LOGGER.error(SearchException.EER_NOT_FOUND);
             throw new SearchException(SearchException.EER_NOT_FOUND);
@@ -31,7 +31,7 @@ public class SearchingFacade {
     }
 
     public List<Employee> searchEmployeesName(String fragment) throws SearchException {
-        LOGGER.info("The search for an employee with a name with the letters: " + fragment + "has started");
+        LOGGER.info("The search for an employee with a name with the letters: " + fragment + " has started");
         List<Employee> resultEmployees = employeeDao.retrieveEmployeeThisLastname(fragment);
         if (resultEmployees.isEmpty()) {
             LOGGER.error(SearchException.EER_NOT_FOUND);

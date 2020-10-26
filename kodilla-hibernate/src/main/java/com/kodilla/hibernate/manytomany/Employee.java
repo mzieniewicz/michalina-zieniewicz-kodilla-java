@@ -7,7 +7,7 @@ import java.util.List;
 
 @NamedQuery(
         name = "Employee.retrieveEmployeeThisLastname",
-        query = "FROM Employee WHERE lastname = :LASTNAME"
+        query = "FROM Employee WHERE lastname LIKE CONCAT('%', :FRAGMENT, '%') "
 )
 @Entity
 @Table(name = "EMPLOYEES")

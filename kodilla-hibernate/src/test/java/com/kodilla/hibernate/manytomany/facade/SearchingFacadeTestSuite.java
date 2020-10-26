@@ -26,10 +26,6 @@ public class SearchingFacadeTestSuite {
     @Test
     public void testSearchCompaniesNameFacade() throws SearchException {
         //Given
-        Employee johnSmith = new Employee("John", "Smith");
-        Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
-        Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
-
         Company softwareMachine = new Company("Software Machine");
         Company dataMaesters = new Company("Data Maesters");
         Company greyMatter = new Company("Grey Matter");
@@ -42,7 +38,7 @@ public class SearchingFacadeTestSuite {
         int greyMatterId = greyMatter.getId();
 
         //When
-        List<Company> companyStartsWithTheLetters = searchingFacade.searchCompaniesName("Dat");
+        List<Company> companyStartsWithTheLetters = searchingFacade.searchCompaniesName("rey");
         //Then
         Assert.assertEquals(1, companyStartsWithTheLetters.size());
         //CleanUp
@@ -68,7 +64,7 @@ public class SearchingFacadeTestSuite {
         employeeDao.save(patSmith);
 
         //When
-        List<Employee> employeeThisLastname = searchingFacade.searchEmployeesName("Smith");
+        List<Employee> employeeThisLastname = searchingFacade.searchEmployeesName("mith");
 
         //Then
         Assert.assertEquals(2, employeeThisLastname.size());

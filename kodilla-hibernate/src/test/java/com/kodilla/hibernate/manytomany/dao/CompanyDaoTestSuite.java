@@ -149,9 +149,10 @@ public class CompanyDaoTestSuite {
 
 
         //When
-        List<Company> companyStartsWithTheLetters = companyDao.retrieveCompanyWithFirstThreeLetters("Dat");
+        List<Company> companyStartsWithTheLetters = companyDao.retrieveCompanyWithTheLetters("Dat");
 
         //Then
+
 
         Assert.assertEquals(1, companyStartsWithTheLetters.size());
         //CleanUp
