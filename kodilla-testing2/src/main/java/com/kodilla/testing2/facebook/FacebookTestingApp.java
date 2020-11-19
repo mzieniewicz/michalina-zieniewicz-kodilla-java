@@ -15,23 +15,29 @@ public class FacebookTestingApp {
     public static final String XPATH_MONTH = "//div[contains(@class, \"_5k_5\")]/span/span/select[2]";
     public static final String XPATH_YEAR = "//div[contains(@class, \"_5k_5\")]/span/span/select[3]";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
         driver.get(" https://www.facebook.com/");
 
+        Thread.sleep(4000);
+
         WebElement acceptField = driver.findElement(By.id(ACCEPT_BUTTON));
         acceptField.click();
+
+        Thread.sleep(4000);
 
         while (!driver.findElement(By.id(LOGIN_FORM)).isDisplayed()) ;
 
         WebElement newRegistrationField = driver.findElement(By.id(REGISTRATION_BUTTON));
         newRegistrationField.click();
 
+        Thread.sleep(4000);
+
         while (!driver.findElement(By.xpath(XPATH_DAY)).isDisplayed()) ;
 
         WebElement selectDay = driver.findElement(By.xpath(XPATH_DAY));
         Select selectBoardDay = new Select(selectDay);
-        selectBoardDay.selectByVisibleText("6");
+        selectBoardDay.selectByVisibleText("11");
 
         while (!driver.findElement(By.xpath(XPATH_MONTH)).isDisplayed()) ;
 
